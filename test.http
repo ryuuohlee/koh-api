@@ -1,8 +1,10 @@
-GET http://localhost:3000/
+@BASE_URL = http://localhost:3000
+
+GET {{BASE_URL}}/
 
 ###
 
-POST http://localhost:3000/signin
+POST {{BASE_URL}}/signin
 Content-Type: application/json
 
 {

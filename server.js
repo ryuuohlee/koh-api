@@ -31,6 +31,11 @@ const database = {
 
 //routes
 app.get('/', (req, res) => {
+  res.send('this is working')
+})
+
+//signin --> POST = success/fail
+app.post('/signin', (req,res) => {
   if(req.body.email === database.users[0].email && req.body.password === database.users[0].password) {
     res.json('success');
   }
@@ -39,12 +44,10 @@ app.get('/', (req, res) => {
   }
 })
 
-//signin --> POST = success/fail
-app.post('/signin', (req,res) => {
-  res.send('signing')
+//register --> user
+app.post('/register', (req, res) => {
 })
 
-//register --> user
 //profile/:userID --> GET = user
 //image --> PUT --> user
 

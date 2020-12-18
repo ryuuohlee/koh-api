@@ -1,6 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const bcrypt = require('bcryptjs');
+const cors = require('cors');
 
 
 const app = express();
@@ -8,6 +9,7 @@ const port = 3000;
 
 //middleware
 app.use(bodyParser.json());
+app.use(cors());
 
 const database = {
   users: [
@@ -38,7 +40,7 @@ app.get('/', (req, res) => {
 //signin --> POST = success/fail
 app.post('/signin', (req, res) => {
   if(req.body.email === database.users[0].email && req.body.password === database.users[0].password) {
-    res.json('success');
+    res.json(database.users[0]);
   }
   else {
     res.status(400).json('error loggin in')
@@ -75,7 +77,7 @@ app.get('/profile/:id', (req, res) => {
 })
 
 //image --> PUT --> user
-app.post('/image', (req, res) => {
+app.put('/image', (req, res) => {
   const { id } = req.body;
   let found =  false;
   database.users.forEach(user =>  {

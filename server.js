@@ -42,6 +42,9 @@ app.get('/profile/:id', (req, res) => { profile.handleProfile(req, res, db) })
 //image --> PUT --> user
 app.put('/image', (req, res) => { image.handleImage(req, res, db)})
 
+//imageUrl api call --> POST
+app.post('/imageUrl', (req, res) => { image.handleApiCall(req, res)})
+
 app.listen(port, () => {
   console.log(`app is running on port ${port}`);
 })

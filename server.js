@@ -14,14 +14,14 @@ const db = knex({
   client: 'pg',
   connection: {
     host : '127.0.0.1',
-    user : 'postgres',
+    user : process.env.USER,
     password : process.env.PASSWORD,
     database : 'koh'
   }
 });
 
 const app = express();
-const port = 3000;
+const port = process.env.PORT;
 
 //middleware
 app.use(bodyParser.json());

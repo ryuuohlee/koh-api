@@ -45,6 +45,6 @@ app.put('/image', (req, res) => { image.handleImage(req, res, db)})
 //imageUrl api call --> POST
 app.post('/imageUrl', (req, res) => { image.handleApiCall(req, res)})
 
-app.listen(port, () => {
+app.listen(port || 3000, () => {
   console.log(`app is running on port ${port}`);
 })
